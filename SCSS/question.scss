@@ -1,0 +1,265 @@
+.question {
+  margin: 70px 0;
+
+  &__title {
+    display: flex;
+
+    h2 {
+      color: var(--blue, #00536F);
+      text-align: center;
+      font-family: Roboto;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+
+  &__block {
+    margin: 40px 0 0 0;
+    position: relative;
+    border-radius: 15px;
+    background: var(--blue-low, #31718E);
+    width: 100%;
+    height: 464px;
+    flex-shrink: 0;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    .checkbox{
+      margin: 0 0 0 20px;
+    }
+  }
+
+  &__phone {
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &__text {
+    margin: 30px 0 20px;
+
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+
+  &__button {
+    margin: 30px 0 0 0;
+    color: var(--white, #FFF);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 15px;
+    background: var(--red, #BE3203);
+    display: flex;
+    width: 500px;
+    padding: 20px 128px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__image {
+    position: relative;
+    bottom: 93px;
+    left: 28px;
+  }
+}
+
+.form {
+
+  &__name,
+  &__phone {
+    border-radius: 15px;
+    background: var(--white, #FFF);
+    display: flex;
+    width: 500px;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__phone {
+    margin: 10px 0 20px;
+  }
+}
+
+.red {
+  color: var(--red, #BE3203);
+  font-family: Roboto;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.bold {
+  color: var(--white, #FFF);
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.checkbox {
+  display: flex;
+}
+
+.custom-checkbox {
+  display: none;
+}
+
+.checkbox-label {
+  position: relative;
+  margin: 0 0 0 10px;
+
+  a {
+    color: var(--white, #FFF);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: var(--white, #FFF) dashed 2px;
+  }
+
+  color: var(--white, #FFF);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.checkbox-label::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  background-color: var(--blue-low, #31718E);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Имитация галочки */
+.custom-checkbox:checked+.checkbox-label::before {
+  content: "\2713";
+  /* Юникод для галочки */
+  color: white;
+  text-align: center;
+  line-height: 20px;
+}
+
+@media(max-width:1350px) {
+  .question__image {
+    top: 93px;
+    left: 10px;
+
+    img {
+      width: 414px;
+      height: 371px;
+    }
+  }
+}
+
+@media(max-width:1000px) {
+  .question__image {
+    display: none;
+  }
+
+  .question__form,
+  .form__name,
+  .form__phone,
+  .question__button {
+    width: 100%;
+  }
+}
+
+@media(max-width:630px) {
+  .question__button {
+    width: 100%;
+    padding: 20px 64px;
+  }
+
+  .question__phone {
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .question__block {
+    height: 100%;
+  }
+
+  .question__title {
+
+    h2,
+    span {
+      font-size: 48px;
+    }
+  }
+
+  .question__text {
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .question__button {
+    font-size: 16px;
+  }
+}
+
+@media(max-width:480px) {
+  .question {
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue-low, #31718E);
+  }
+
+  .question__title {
+    padding: 20px 0 0 30px;
+
+    h2,
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .question__button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,12 @@
+.content__privacy-policy {
+  margin: 40px auto;
+  max-width: 760px;
+}
+.content__privacy-policy span {
+  color: var(--black, #252525);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

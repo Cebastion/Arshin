@@ -1,0 +1,125 @@
+.footer {
+  background: #003551;
+
+  &__container {
+    max-width: 1310px;
+    margin: 0 auto;
+    padding: 80px 10px;
+  }
+
+  &__row {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__column {}
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__contact {}
+
+  &__location {
+    margin: 11px 0;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url('../image/contact.webp');
+      margin: 0 10px 0 0;
+    }
+
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url('../image/time.webp');
+      margin: 0 10px 0 0;
+    }
+
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &__rights {
+    margin: 50px 0 0 0;
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &__menu {
+    & li:first-child, li:last-child{
+      margin: 0;
+    }
+    li{
+      margin: 10px 0;
+    }
+    li a {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .contact {
+
+    &__phone {
+      margin: 40px 0 20px;
+    }
+  
+    &__mail {}
+  }
+}
+
+.logo {
+
+  &__img {}
+
+  &__text {}
+}
+
+@media(max-width:400px){
+  .footer__rights{
+    display: none;
+  }
+  .footer__column:nth-child(2),.footer__column:nth-child(3){
+    margin: 20px 0 0 0;
+  }
+}

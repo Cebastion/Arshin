@@ -1,0 +1,197 @@
+.content__data {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 40px 100px;
+  border-radius: 15px;
+  background: var(--blue-low, #31718E);
+}
+.content__cities {
+  margin: 70px 0 0 0;
+}
+
+.information__title h2 {
+  color: var(--blue, #00536F);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+.information__text {
+  margin: 40px 0;
+  max-width: 100%;
+  text-align: start;
+}
+.information__text p {
+  color: var(--black, #252525);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.information__text p:nth-child(2) {
+  margin: 10px 0;
+}
+
+.data__block {
+  display: flex;
+  align-items: center;
+}
+.data__block:nth-child(2) {
+  margin: 0 50px;
+}
+.data__text {
+  margin: 0 0 0 10px;
+}
+.data__text span {
+  color: var(--white, #FFF);
+  font-family: Roboto;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.button__order {
+  margin: 20px 0 70px;
+  color: var(--white, #FFF);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  width: 100%;
+  padding: 20px 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  background: var(--red, #BE3203);
+}
+
+.companies__block {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+.companies__name {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+.companies__name::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  background-image: url("../image/svg/orange-place-2.svg");
+  margin: 0 10px 0 0;
+}
+.companies__name a {
+  color: var(--blue, #00536F);
+  font-family: Roboto;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.cities__title {
+  margin-bottom: 40px;
+}
+.cities__title h2 {
+  color: var(--blue, #00536F);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.cities__block {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+.cities__name {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+.cities__name::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  background-image: url("../image/svg/orange-place.svg");
+  margin: 0 10px 0 0;
+}
+.cities__name a {
+  justify-content: center;
+  color: var(--blue, #00536F);
+  font-family: Roboto;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@media (max-width: 1000px) {
+  .information__title h2 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 768px) {
+  .data__text span {
+    font-size: 24px;
+  }
+}
+@media (max-width: 670px) {
+  .data__text span {
+    font-size: 20px;
+  }
+  .content__data {
+    flex-direction: column;
+    align-items: start;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .data__block:nth-child(2) {
+    margin: 0;
+  }
+}
+@media (max-width: 480px) {
+  .information__title h2 {
+    font-size: 28px;
+ 
+  }
+  .cities__block {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .cities__title h2 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 410px) {
+  .companies__block {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  .companies__name, .cities__name {
+    font-size: 20px;
+  }
+  .data__text span {
+    font-size: 16px;
+  }
+}

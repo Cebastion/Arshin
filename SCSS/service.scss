@@ -1,0 +1,229 @@
+.content {
+
+  &__service {
+    margin: 70px 0 0 0;
+    .content__container{
+      padding: 10px;
+    }
+  }
+}
+
+.service {
+
+  &__title {
+    margin-bottom: 40px;
+
+    h2 {
+      color: var(--blue, #00536F);
+      text-align: center;
+      font-family: Roboto;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+
+  &__block {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: var(--blue-low, #31718E);
+    margin: 0 0 30px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 30px;
+  }
+
+  &__name {
+    h2 {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%;
+      /* 46.8px */
+    }
+  }
+
+  &__points {
+    margin: 20px 0 110px;
+
+    li {
+      display: flex;
+      align-items: center;
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      &::before {
+        content: '';
+        display: block;
+        background-color: var(--white, #FFF);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+
+  &__price {
+    margin-bottom: 20px;
+
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+
+  &__button {
+    color: var(--white, #FFF);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    width: 100%;
+    padding: 20px 64px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    background: var(--blue-low, #31718E);
+    border: 2px solid var(--white, #FFF);
+  }
+
+  &__image {
+    img {
+      max-width: 550px;
+      max-height: 450px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+@media(max-width:1350px) {
+  .service__name {
+    h2 {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%;
+      /* 36.4px */
+    }
+  }
+
+  .service__points {
+    li {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .service__price {
+    span {
+      color: var(--white, #FFF);
+      font-family: Roboto;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+  
+}
+
+@media(max-width:768px){
+  .service__title{
+    h2{
+      font-size: 28px;
+    }
+  }
+  .service{
+    &__row{
+      flex-direction: column-reverse;
+    }
+    &__image{
+      img{
+        border-radius: 15px 15px 0 0;
+        max-width: 440px;
+        max-height: 304px;
+      }
+    }
+    &__block{
+      margin: 0px auto 30px;
+      max-width: 440px;
+      max-height: 700px;
+      &:last-child{
+        margin: 0px auto;
+      }
+    }
+    &__button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 10px 0;
+    }
+    &__price-button{
+      display: flex;
+      justify-content: space-between;
+    }
+    &__info{
+      margin: 0 10px;
+    }
+    &__price{
+      width: 60%;
+    }
+  }
+}
+
+@media(max-width:430px){
+  .service__title{
+    h2{
+      font-size: 24px;
+    }
+  }
+  .service__price-button{
+    flex-direction: column;
+  }
+  .service__button{
+    width: 100%;
+  }
+  .service__block {
+    max-width: 440px;
+    max-height: 700px;
+}
+}
