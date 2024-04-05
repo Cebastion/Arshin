@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $lead_phone = FormattingPhone($_POST['lead_phone']);
         $client_description = !!($_POST['client_description']) ? $_POST['client_description'] : 'нет примечания';
         $lead_client_meter_number = $_POST['lead_client_meter_number'];
-        $lead_company = 'Аршин'; // НАЗВАНИЕ КОМПАНИИ
+        $lead_company = 'ЦФО'; // НАЗВАНИЕ КОМПАНИИ
         $lead_source = 'yandex.ru';
         $MAIL = ''; // ПОЧТА
         $domain = 'http://arshin-m.store/'; // ДОМЕН

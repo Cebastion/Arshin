@@ -33,6 +33,7 @@
 </head>
 
 <body>
+	<?php include("./components/var.php") ?>
 	<div class="walleper">
 		<div class="header">
 			<div class="header__top">

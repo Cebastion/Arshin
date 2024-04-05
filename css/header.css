@@ -216,7 +216,7 @@
   display: flex;
   justify-content: space-evenly;
 }
-.h_title {
+.info__title h1 {
   max-width: 633px;
   color: var(--white, #FFF);
   font-family: Roboto;
