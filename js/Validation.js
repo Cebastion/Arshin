@@ -3,10 +3,10 @@ function validateForm(form) {
     var phoneField = form.querySelector('.lead_phone')
     var checkbox = form.querySelector('.custom-checkbox')
 
-    if (nameField.value.trim() === "") {
+    /*if (nameField.value.trim() === "") {
         alert("Пожалуйста, введите ваше имя.")
         return false
-    }
+    }*/
 
     if (phoneField.value.trim() === "") {
         alert("Пожалуйста, введите номер телефона.")
@@ -28,7 +28,7 @@ function validateForm(form) {
             console.log(xhr.responseText)
         }
     }
-    const data = `lead_client_name=${encodeURIComponent(nameField.value)}&lead_phone=${encodeURIComponent(phoneField.value)}`
+    const data = `lead_phone=${encodeURIComponent(phoneField.value)}`
     xhr.send(data)
 
     // Перенаправление на thanks.php после отправки данных
@@ -37,3 +37,5 @@ function validateForm(form) {
 
     return false
 }
+
+//lead_client_name=${encodeURIComponent(nameField.value)}

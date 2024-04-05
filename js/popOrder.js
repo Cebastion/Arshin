@@ -46,14 +46,14 @@ buttons.forEach(button => {
         form.addEventListener("submit", (event) => {
             event.preventDefault(); // Prevent the default form submission
             
-            const nameField = form.querySelector('.lead_client_name');
+            //const nameField = form.querySelector('.lead_client_name');
             const phoneField = form.querySelector('.lead_phone');
             const checkbox = form.querySelector('.custom-checkbox');
 
-            if (nameField.value.trim() === "") {
-                alert("Пожалуйста, введите номер счетчика.");
-                return;
-            }
+            // if (nameField.value.trim() === "") {
+            //     alert("Пожалуйста, введите номер счетчика.");
+            //     return;
+            // }
 
             if (phoneField.value.trim() === "") {
                 alert("Пожалуйста, введите номер телефона.");
@@ -83,8 +83,8 @@ buttons.forEach(button => {
                     }
                 }
             };
-
-            var data = `lead_client_name=${encodeURIComponent(nameField.value)}&lead_phone=${encodeURIComponent(phoneField.value)}`;
+            //lead_client_name=${encodeURIComponent(nameField.value)}&
+            var data = `lead_phone=${encodeURIComponent(phoneField.value)}`;
             xhr.send(data);
         });
 

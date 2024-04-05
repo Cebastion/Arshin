@@ -397,6 +397,7 @@
   background: var(--blue-low, #31718E);
 }
 .order__form input {
+  margin-bottom: 20px;
   height: 60px;
   padding: 0 0 0 20px;
   font-family: Roboto;

@@ -49,7 +49,7 @@ function createDayElement(date) {
     return dayElement;
 }
 
-function sendDataToServer(userName, userPhone, formattedDate) {
+function sendDataToServer(userPhone, formattedDate) {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../server/server.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -58,7 +58,9 @@ function sendDataToServer(userName, userPhone, formattedDate) {
             console.log(xhr.responseText);
         }
     };
-    const data = `lead_client_name=${encodeURIComponent(userName)}&lead_phone=${encodeURIComponent(userPhone)}&client_description=${encodeURIComponent(formattedDate)}&date=${encodeURIComponent(formattedDate)}`;
+    //lead_client_name=${encodeURIComponent(userName)}
+    const data = `lead_phone=${encodeURIComponent(userPhone)}&client_description=${encodeURIComponent(formattedDate)}&date=${encodeURIComponent(formattedDate)}`;
+    console.log(data)
     xhr.send(data);
 }
 
@@ -76,12 +78,12 @@ nextMonthButton.addEventListener("click", () => {
 
 sendDataButton.addEventListener("click", () => {
     const selectedDay = document.querySelector(".selected-day");
-    const userNameInput = document.querySelector(".order__name");
+    //const userNameInput = document.querySelector(".order__name");
     
-    if (!userNameInput.value.trim()) {
+    /*if (!userNameInput.value.trim()) {
         alert("Пожалуйста, введите ваше имя.");
         return;
-    }
+    }*/
 
     if (!phoneNumberInput.value.trim()) {
         alert("Пожалуйста, введите номер телефона.");
@@ -99,7 +101,7 @@ sendDataButton.addEventListener("click", () => {
     }
 
     const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), parseInt(selectedDay.textContent));
-    const userName = userNameInput.value;
+    //const userName = userNameInput.value;
     const userPhone = phoneNumberInput.value;
 
     const day = date.getDate();
@@ -107,10 +109,10 @@ sendDataButton.addEventListener("click", () => {
     const year = date.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
 
-    sendDataToServer(userName, userPhone, formattedDate);
+    sendDataToServer(userPhone, formattedDate);
 
     selectedDay.classList.remove("selected-day");
-    userNameInput.value = "";
+    //userNameInput.value = "";
     phoneNumberInput.value = "";
     agreementCheckbox.checked = false;
     window.location.href = "./thanks.php";
