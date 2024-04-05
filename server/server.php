@@ -3,8 +3,7 @@
 function FormattingPhone($phoneNumber)
 {
     $sanitizedPhoneNumber = preg_replace('/[^0-9\-()]/', '', $phoneNumber);
-
-    $sanitizedPhoneNumber = str_replace('--', '-', $sanitizedPhoneNumber);
+    $sanitizedPhoneNumber = preg_replace('/-{2,}/', '-', $sanitizedPhoneNumber);
     $sanitizedPhoneNumber = str_replace('()', '', $sanitizedPhoneNumber);
 
     return $sanitizedPhoneNumber;
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $service = 'поверка';
         $client_name = 'неизвестно'; // !!($_POST['client_name']) ? $_POST['client_name'] : 'неизвестно'
         $client_address = !!($_POST['client_address']) ? $_POST['client_address'] : '';
-        $message = !!($_POST['message']) ? $_POST['message'] : '';
+        $message = !!($_POST['message']) ? $date : '';
 
         // API данные счетчика
         $MeterNumberData = array(
@@ -136,7 +135,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             )
         );
 
-        //$result = curl_exec($ch);
+        $result = curl_exec($ch);
+        if ($result === false) {
+            throw new Exception('Curl request failed: ' . curl_error($ch));
+        }
 
         curl_close($ch);
 
