@@ -6,11 +6,23 @@ const sendDataButton = document.querySelector(".order__button");
 const phoneNumberInput = document.querySelector(".order__phone");
 const agreementCheckbox = document.getElementById("customCheckboxCalendar");
 
-phoneNumberInput.addEventListener("input", () => {
+phoneNumberInput.addEventListener("input", function () {
+    const trimmedValue = phoneNumberInput.value.trim();
+    // Проверяем, что значение не пустое и не начинается с '+7'
+    if (trimmedValue !== "" && !trimmedValue.startsWith("+7")) {
+        // Добавляем '+7' в начало значения поля
+        phoneNumberInput.value = "+7" + trimmedValue;
+    } else if (trimmedValue === "+7") {
+        // Если введено только '+7', убираем его
+        phoneNumberInput.value = "";
+    }
+});
+
+/*phoneNumberInput.addEventListener("input", () => {
     const inputValue = phoneNumberInput.value.replace(/\D/g, "");
     const formattedValue = formatPhoneNumber(inputValue);
     phoneNumberInput.value = formattedValue;
-});
+});*/
 
 function formatPhoneNumber(input) {
     const matches = input.match(/^(\d{1})(\d{3})(\d{3})(\d{4})$/);
@@ -23,14 +35,22 @@ function formatPhoneNumber(input) {
 let currentDate = new Date();
 
 function renderCalendar() {
-    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+    const lastDayOfMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth() + 1,
+        0
+    );
 
-    currentMonthYear.textContent = `${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getFullYear()}`;
+    currentMonthYear.textContent = `${currentDate.toLocaleString("default", {
+        month: "long",
+    })} ${currentDate.getFullYear()}`;
 
     calendarDays.innerHTML = "";
 
     for (let day = 1; day <= lastDayOfMonth.getDate(); day++) {
-        const dayElement = createDayElement(new Date(currentDate.getFullYear(), currentDate.getMonth(), day));
+        const dayElement = createDayElement(
+            new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
+        );
         calendarDays.appendChild(dayElement);
     }
 }
@@ -41,7 +61,7 @@ function createDayElement(date) {
     dayElement.textContent = date.getDate();
     dayElement.addEventListener("click", () => {
         const allDayElements = document.querySelectorAll(".calendar-day");
-        allDayElements.forEach(element => {
+        allDayElements.forEach((element) => {
             element.classList.remove("selected-day");
         });
         dayElement.classList.add("selected-day");
@@ -59,8 +79,10 @@ function sendDataToServer(userPhone, formattedDate) {
         }
     };
     //lead_client_name=${encodeURIComponent(userName)}
-    const data = `lead_phone=${encodeURIComponent(userPhone)}&client_description=${encodeURIComponent(formattedDate)}`;
-    console.log(data)
+    const data = `lead_phone=${encodeURIComponent(
+        userPhone
+    )}&client_description=${encodeURIComponent(formattedDate)}`;
+    console.log(data);
     xhr.send(data);
 }
 
@@ -79,7 +101,7 @@ nextMonthButton.addEventListener("click", () => {
 sendDataButton.addEventListener("click", () => {
     const selectedDay = document.querySelector(".selected-day");
     //const userNameInput = document.querySelector(".order__name");
-    
+
     /*if (!userNameInput.value.trim()) {
         alert("Пожалуйста, введите ваше имя.");
         return;
@@ -91,7 +113,9 @@ sendDataButton.addEventListener("click", () => {
     }
 
     if (!agreementCheckbox.checked) {
-        alert("Для продолжения необходимо принять условия политики конфиденциальности.");
+        alert(
+            "Для продолжения необходимо принять условия политики конфиденциальности."
+        );
         return;
     }
 
@@ -100,7 +124,11 @@ sendDataButton.addEventListener("click", () => {
         return;
     }
 
-    const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), parseInt(selectedDay.textContent));
+    const date = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        parseInt(selectedDay.textContent)
+    );
     //const userName = userNameInput.value;
     const userPhone = phoneNumberInput.value;
 
