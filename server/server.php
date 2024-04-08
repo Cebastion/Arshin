@@ -2,10 +2,7 @@
 
 function FormattingPhone($phoneNumber)
 {
-    $sanitizedPhoneNumber = preg_replace('/[^0-9\-()]/', '', $phoneNumber);
-    $sanitizedPhoneNumber = preg_replace('/-{2,}/', '-', $sanitizedPhoneNumber);
-    $sanitizedPhoneNumber = str_replace('()', '', $sanitizedPhoneNumber);
-
+    $sanitizedPhoneNumber = preg_replace('/[^0-9]/', '', $phoneNumber);
     return $sanitizedPhoneNumber;
 }
 
@@ -16,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $lead_phone = FormattingPhone($_POST['lead_phone']);
         $client_description = !!($_POST['client_description']) ? $_POST['client_description'] : 'нет примечания';
         $lead_client_meter_number = $_POST['lead_client_meter_number'];
-        $lead_company = 'ЦФО'; // НАЗВАНИЕ КОМПАНИИ
+        $lead_company = 'Аршин'; // НАЗВАНИЕ КОМПАНИИ
         $lead_source = 'yandex.ru';
         $MAIL = ''; // ПОЧТА
         $domain = 'http://arshin-m.store/'; // ДОМЕН
@@ -94,7 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "message" => $message,
         );
 
-        $data_string = json_encode($data);
+        $data_wrapper = array($data);
+        $data_string = json_encode($data_wrapper);
 
         $ch = curl_init('https://proxy.ilobster.ru:8443/api/redro');
         if ($ch === false) {
