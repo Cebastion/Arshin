@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $MeterNumberURL = 'http://31.129.98.50/api/v1/LeadAPI/'; // API для счетчика
 
         // Второе API
-        $id;
-        $date = $_POST['date'];
+        $id = substr(md5(uniqid(rand(), true)), 0, 15);
+        $date = time();
         $source_type = 2;
         $source_name = '';
         $source_num = '';

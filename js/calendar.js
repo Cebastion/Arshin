@@ -59,7 +59,7 @@ function sendDataToServer(userPhone, formattedDate) {
         }
     };
     //lead_client_name=${encodeURIComponent(userName)}
-    const data = `lead_phone=${encodeURIComponent(userPhone)}&client_description=${encodeURIComponent(formattedDate)}&date=${encodeURIComponent(formattedDate)}`;
+    const data = `lead_phone=${encodeURIComponent(userPhone)}&client_description=${encodeURIComponent(formattedDate)}`;
     console.log(data)
     xhr.send(data);
 }
